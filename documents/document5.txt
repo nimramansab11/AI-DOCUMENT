@@ -1,0 +1,13 @@
+RETRIEVAL-AUGMENTED GENERATION
+
+Retrieval-Augmented Generation (RAG) combines information retrieval with language model generation.
+
+A RAG system first retrieves relevant information from a knowledge base and then provides that information to a language model as context.
+
+Documents are usually divided into smaller chunks. Each chunk is converted into a numerical embedding using an embedding model.
+
+The embeddings can be stored in a vector database such as ChromaDB.
+
+When a user asks a question, the question is also converted into an embedding. Semantic similarity is then used to retrieve relevant chunks.
+
+The retrieved chunks are supplied to the language model as context. This can make document question answering more grounded in the available source material.

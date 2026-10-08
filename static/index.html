@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Document Intelligence</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+
+            <div>
+                <h1>DocuMind</h1>
+                <span>AI Document Intelligence</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+
+            <p class="section-label">WORKSPACE</p>
+
+            <button class="nav-item active">
+                <span>⌂</span>
+                Knowledge Assistant
+            </button>
+
+            <button class="nav-item">
+                <span>◈</span>
+                Semantic Search
+            </button>
+
+            <button class="nav-item">
+                <span>◌</span>
+                Prompt Lab
+            </button>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="system-card">
+
+                <div class="status-row">
+                    <span class="status-dot"></span>
+                    <span>System Online</span>
+                </div>
+
+                <p>RAG engine connected</p>
+
+            </div>
+
+            <div class="sidebar-footer">
+                <span>AI Document QA</span>
+                <span>v2.0</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="main-content">
+
+        <!-- Top bar -->
+        <header class="topbar">
+
+            <div>
+                <p class="eyebrow">DOCUMENT INTELLIGENCE</p>
+                <h2>Knowledge Assistant</h2>
+            </div>
+
+            <div class="top-actions">
+
+                <div class="api-status">
+                    <span class="status-dot"></span>
+                    API Connected
+                </div>
+
+                <button class="icon-button">⚙</button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <span>✦</span>
+                    Retrieval-Augmented Generation
+                </div>
+
+                <h3>
+                    Ask anything about
+                    <span>your documents.</span>
+                </h3>
+
+                <p>
+                    Search your private knowledge base using semantic
+                    embeddings and get accurate AI-powered answers.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Stats -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">▣</div>
+
+                <div>
+                    <span>Indexed Chunks</span>
+                    <strong id="chunkCount">—</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">◈</div>
+
+                <div>
+                    <span>Vector Database</span>
+                    <strong>ChromaDB</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">◎</div>
+
+                <div>
+                    <span>Embeddings</span>
+                    <strong>MiniLM-L6</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">✦</div>
+
+                <div>
+                    <span>AI Engine</span>
+                    <strong>Gemini</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Workspace -->
+        <section class="workspace-grid">
+
+            <!-- Ask panel -->
+            <div class="panel ask-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-kicker">AI QUERY</span>
+                        <h3>Ask your documents</h3>
+                    </div>
+
+                    <span class="live-badge">
+                        <span class="status-dot"></span>
+                        Live
+                    </span>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="question">
+                        Your question
+                    </label>
+
+                    <textarea
+                        id="question"
+                        placeholder="Ask a question about your documents..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="controls">
+
+                    <div class="form-group">
+
+                        <label for="promptType">
+                            Prompt technique
+                        </label>
+
+                        <select id="promptType">
+
+                            <option value="zero-shot">
+                                Zero-shot
+                            </option>
+
+                            <option value="few-shot">
+                                Few-shot
+                            </option>
+
+                            <option value="role-based">
+                                Role-based
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="topK">
+                            Retrieved chunks
+                        </label>
+
+                        <select id="topK">
+
+                            <option value="3">Top 3</option>
+                            <option value="5">Top 5</option>
+                            <option value="10">Top 10</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="askButton"
+                    class="primary-button"
+                >
+                    <span>Ask AI</span>
+                    <span>→</span>
+                </button>
+
+            </div>
+
+
+            <!-- Answer panel -->
+            <div class="panel answer-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="panel-kicker">AI RESPONSE</span>
+                        <h3>Answer</h3>
+                    </div>
+
+                    <span id="answerStatus" class="answer-status">
+                        Waiting
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="answerBox"
+                    class="answer-box empty"
+                >
+
+                    <div class="empty-icon">✦</div>
+
+                    <h4>Your answer will appear here</h4>
+
+                    <p>
+                        Ask a question to retrieve relevant
+                        information from your documents.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Retrieved Sources -->
+        <section class="panel sources-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <span class="panel-kicker">
+                        SEMANTIC RETRIEVAL
+                    </span>
+
+                    <h3>Retrieved sources</h3>
+                </div>
+
+                <span id="sourceCount">
+                    0 sources
+                </span>
+
+            </div>
+
+
+            <div id="sourcesContainer" class="sources-container">
+
+                <div class="sources-empty">
+                    <span>◈</span>
+                    <p>
+                        Retrieved document chunks will appear here
+                        after your query.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <span>
+                AI Document Question Answering System
+            </span>
+
+            <span>
+                RAG • Embeddings • Semantic Search • Prompt Engineering
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>

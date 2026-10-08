@@ -1,0 +1,9 @@
+ARTIFICIAL INTELLIGENCE
+
+Artificial Intelligence (AI) is a field of computer science focused on building systems that can perform tasks associated with human intelligence.
+
+AI systems can perform tasks such as pattern recognition, reasoning, language processing, prediction, and decision support.
+
+Machine learning is an important branch of AI. Instead of manually programming every rule, machine learning systems learn patterns from data.
+
+Artificial intelligence is applied in healthcare, education, finance, transportation, customer service, and scientific research.
